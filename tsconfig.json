@@ -10,8 +10,10 @@
     "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "./",
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.
      * Disable checkJs if you'd like to use dynamic types in JS.
@@ -22,6 +24,13 @@
     "checkJs": false,
     "isolatedModules": true
   },
-  "include": ["src/**/*.ts", "src/**/*.svelte"],
-  "exclude": ["node_modules", "dist", "**/*.spec.ts", ".eslintrc.cjs", "svelte.config.js", "vite.config.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.svelte",
+    ".eslintrc.cjs",
+    "./svelte.config.js",
+    "./vite.config.ts",
+    "**/*.spec.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

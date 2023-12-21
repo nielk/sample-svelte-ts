@@ -1,7 +1,8 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
   import viteLogo from '../public/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import UserForm from './ui/component/UserForm.svelte'
+
+  export let title: string
 </script>
 
 <main>
@@ -9,14 +10,11 @@
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
     </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
   </div>
-  <h1>Vite + Svelte</h1>
+  <h1>Vite + Svelte: {title}</h1>
 
   <div class="card">
-    <Counter />
+    <UserForm />
   </div>
 
   <p>
@@ -35,12 +33,11 @@
     will-change: filter;
     transition: filter 300ms;
   }
+
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
+
   .read-the-docs {
     color: #888;
   }

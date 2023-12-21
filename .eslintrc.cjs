@@ -1,4 +1,3 @@
-// eslint-disable-next-line functional/prefer-immutable-types
 const config = {
   env: {
     browser: true,
@@ -27,6 +26,13 @@ const config = {
       }
     },
     {
+      files: ['src/domain/*.ts'],
+      rules: {
+        'functional/no-expression-statements': 'error',
+        'functional/no-return-void': 'error'
+      }
+    },
+    {
       files: ['*.svelte'],
       parser: 'svelte-eslint-parser',
       // Parse the `<script>` in `.svelte` as TypeScript by adding the following configuration.
@@ -37,7 +43,8 @@ const config = {
         'functional/no-let': 'off',
         'functional/functional-parameters': 'off',
         'functional/no-return-void': 'off',
-        'functional/no-expression-statements': 'off'
+        'functional/no-expression-statements': 'off',
+        'functional/no-conditional-statements': 'off'
       }
     }
   ],
@@ -59,9 +66,15 @@ const config = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'functional/prefer-immutable-types': 'off'
+    'functional/prefer-immutable-types': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    'functional/no-mixed-types': 'off',
+    'functional/no-return-void': 'off',
+    'functional/no-expression-statements': 'off',
+    'functional/functional-parameters': 'off',
+    'functional/type-declaration-immutability': 'off'
   }
 }
 
-// eslint-disable-next-line functional/no-expression-statements, functional/immutable-data
+// eslint-disable-next-line functional/immutable-data
 module.exports = config
