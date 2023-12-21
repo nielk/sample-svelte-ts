@@ -72,7 +72,9 @@ const config = {
     'functional/no-return-void': 'off',
     'functional/no-expression-statements': 'off',
     'functional/functional-parameters': 'off',
-    'functional/type-declaration-immutability': 'off'
+    'functional/type-declaration-immutability': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    'functional/no-conditional-statements': 'off'
   }
 }
 
