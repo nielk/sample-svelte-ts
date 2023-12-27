@@ -9,8 +9,6 @@ const config = {
     'plugin:@typescript-eslint/strict-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:import/recommended',
-    'plugin:functional/strict',
-    'plugin:functional/stylistic',
     'plugin:svelte/recommended',
     'plugin:svelte/prettier',
     'prettier'
@@ -27,10 +25,7 @@ const config = {
     },
     {
       files: ['src/domain/*.ts'],
-      rules: {
-        'functional/no-expression-statements': 'error',
-        'functional/no-return-void': 'error'
-      }
+      rules: {}
     },
     {
       files: ['*.svelte'],
@@ -39,13 +34,7 @@ const config = {
       parserOptions: {
         parser: '@typescript-eslint/parser'
       },
-      rules: {
-        'functional/no-let': 'off',
-        'functional/functional-parameters': 'off',
-        'functional/no-return-void': 'off',
-        'functional/no-expression-statements': 'off',
-        'functional/no-conditional-statements': 'off'
-      }
+      rules: {}
     }
   ],
   parser: '@typescript-eslint/parser',
@@ -55,7 +44,7 @@ const config = {
     project: ['./tsconfig.json'],
     extraFileExtensions: ['.svelte']
   },
-  plugins: ['@typescript-eslint', 'functional'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'prettier'],
   settings: {
     'import/resolver': {
       typescript: {}
@@ -66,17 +55,35 @@ const config = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'functional/prefer-immutable-types': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    'functional/no-mixed-types': 'off',
-    'functional/no-return-void': 'off',
-    'functional/no-expression-statements': 'off',
-    'functional/functional-parameters': 'off',
-    'functional/type-declaration-immutability': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
-    'functional/no-conditional-statements': 'off'
+    'prettier/prettier': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+    'no-undef': 'off', // already handled by typescript
+    'no-irregular-whitespace': 'off',
+    '@typescript-eslint/no-namespace': 'off',
+    'svelte/no-at-html-tags': 'off',
+    'svelte/valid-compile': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        // The default grouping, but with type imports last as a separate group.
+        groups: [
+          ['^node:', '^node:.*\\u0000$'], // node builtins packages
+          ['^svelte', '^\\w', '^@?\\w'], // svelte and package imports
+          ['^(_/_generated)(/.*|$)'], // generated types
+          ['^(_)(/.*|$)', '^(_)(/.*|$).*\\u0000$'], // alias imports
+          ['^\\.', '^\\..*\\u0000$'], // relative imports
+          ['^.+\\.s?css$'] // styles imports
+        ]
+      }
+    ]
   }
 }
 
-// eslint-disable-next-line functional/immutable-data
 module.exports = config

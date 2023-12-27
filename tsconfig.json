@@ -1,27 +1,30 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
+    "useDefineForClassFields": true,
     "lib": ["ESNext", "DOM"],
+    "types": ["svelte", "vite/client", "vitest/globals"],
     "target": "ESNext",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
     "strict": true,
-    "exactOptionalPropertyTypes": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "noEmit": true,
+    "removeComments": true,
+    "pretty": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "./",
+    "paths": {
+      "_/*": ["./src/*"]
+    },
     "outDir": "dist",
     "rootDir": "./",
-    /**
-     * Typecheck JS in `.svelte` and `.js` files by default.
-     * Disable checkJs if you'd like to use dynamic types in JS.
-     * Note that setting allowJs false does not prevent the use
-     * of JS in `.svelte` files.
-     */
-    "allowJs": false,
-    "checkJs": false,
     "isolatedModules": true
   },
   "include": [

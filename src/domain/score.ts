@@ -1,6 +1,7 @@
-import { is, struct, number, Schema, parseSync } from '@effect/schema/Schema'
-import { UserIdBrand } from './user'
+import { is, number, parseSync, type Schema, struct } from '@effect/schema/Schema'
+
 import { GameIdBrand } from './game'
+import { UserIdBrand } from './user'
 
 const ScoreSchema = struct({
   userId: UserIdBrand,

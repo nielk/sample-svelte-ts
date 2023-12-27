@@ -1,9 +1,11 @@
-import { NotificationService } from '../application/ports'
+import { Context } from 'effect'
 
-export function useNotifier(): NotificationService {
-  return {
-    notify: (message: string) => {
-      console.log(message)
-    }
+import { type NotificationService } from '../application/ports'
+
+export const Notifier = Context.Tag<NotificationService>()
+
+export const NotifierLive = Notifier.of({
+  notify: (message: string) => {
+    console.log(message)
   }
-}
+})

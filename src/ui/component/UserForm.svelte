@@ -1,38 +1,35 @@
 <script lang="ts">
+  import { Age, createUser, UserName } from '../../domain/user'
   import { useUserStorage } from '../../service/storageAdapter'
-  import { Age, UserName, createUser } from '../../domain/user'
-  import { useNotifier } from '../../service/notificationAdapter'
 
   const { updateUser } = useUserStorage()
-  const { notify } = useNotifier()
 
   let name: string | null = null
   let age: string | null = null
 
   $: isEmpty = name === null || age === null || name === '' || age === ''
 
-  function saveUser(event: SubmitEvent & {
-    currentTarget: EventTarget & HTMLFormElement;
-  }) {
+  function saveUser(
+    event: SubmitEvent & {
+      currentTarget: EventTarget & HTMLFormElement
+    }
+  ) {
     event.preventDefault()
 
-    if(isEmpty) {
-      notify('Empty fields')
+    if (isEmpty) {
+      // notify('Empty fields')
 
       return
     }
 
-    const user = createUser(
-      UserName(name),
-      Age(parseInt(age ?? '0'))
-    )
+    const user = createUser(UserName(name), Age(parseInt(age ?? '0')))
 
     updateUser(user)
 
     name = null
     age = null
 
-    notify(`successfully created user: ${user.name}`)
+    // notify(`successfully created user: ${user.name}`)
   }
 </script>
 

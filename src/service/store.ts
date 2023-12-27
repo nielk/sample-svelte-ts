@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store'
+
 import { User } from '../domain/user'
 
 export const useStore = () => {

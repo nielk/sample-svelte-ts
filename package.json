@@ -20,13 +20,14 @@
     "knip": "knip"
   },
   "dependencies": {
-    "@effect/schema": "0.55.0",
-    "effect": "2.0.0-next.61",
+    "@effect/schema": "0.56.0",
+    "effect": "2.0.0-next.62",
     "list": "2.0.19",
     "shades": "2.2.0",
     "webmidi": "3.1.8"
   },
   "devDependencies": {
+    "@effect/match": "0.40.0",
     "@esbuild/darwin-arm64": "0.19.10",
     "@sveltejs/vite-plugin-svelte": "3.0.1",
     "@tsconfig/svelte": "5.0.2",
@@ -38,11 +39,12 @@
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-functional": "6.0.0",
     "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.1.2",
+    "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-svelte": "2.35.1",
     "fast-check": "3.15.0",
-    "knip": "3.8.3",
+    "knip": "3.8.4",
     "oxlint": "0.0.21",
     "prettier": "3.1.1",
     "prettier-plugin-svelte": "3.1.2",

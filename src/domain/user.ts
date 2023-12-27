@@ -1,4 +1,12 @@
-import { brand, is, struct, string, number, Schema, parseSync } from '@effect/schema/Schema'
+import {
+  brand,
+  is,
+  number,
+  parseSync,
+  type Schema,
+  string,
+  struct
+} from '@effect/schema/Schema'
 
 export const UserIdBrand = number.pipe(brand(Symbol.for('UserId')))
 export type UserId = Schema.To<typeof UserIdBrand>
